@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Employer Dashboard{% endblock %}
+{% block content %}
+
+<div style="margin-top: 5%;  text-decoration: wavy; ">
+    <h1 style="text-align: center; color: blue;">Application Form Page</h1>
+</div>
+
+<form method="post" enctype="multipart/form-data">
+    <p>INPUTS SHOULD BE LESS THAN 500 WORDS</p>
+
+    <label for="apply_letter">Application Letter</label>
+    <textarea type="text" id="apply_letter" name="apply_letter" required></textarea>
+
+    <label for="academic_qual">Enter All Your Academic Qualifications</label>
+    <textarea id="academic_qual" name="academic_qual" required></textarea>
+
+    <label for="work_experience">Working Experience</label>
+    <input type="text" id="work_experience" name="work_experience" required>
+
+    <label for="tech_skills">Technical Skills</label>
+    <input type="text" id="tech_skills" name="tech_skills" required>
+
+    <label for="soft_skills">Soft Skills</label>
+    <input type="text" id="soft_skills" name="soft_skills" required>
+
+    <label for="teamwork">Ability to work in a team (check the box if you can)</label>
+    <input type="checkbox" id="tma" name="tma">
+
+    <label for="cv_file">Upload your PDF CV</label>
+    <input type="file" id="cv_file" name="cv_file" accept=".pdf" required>
+
+    <label for="asking_salary">Expected Salary Range</label>
+    <input type="text" id="asking_salary" name="asking_salary" required>
+
+    <button type="submit">Submit Application</button>
+
+    <p>please note: for security purpose, you would be asked to login again after the submission of this</p>
+</form>
+
+{% endblock %}

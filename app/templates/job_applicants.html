@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Job Applicants{% endblock %}
+
+{% block content %}
+<h2>Applicants for {{ job.title }}</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Job Seeker Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for applicant in applicants %}
+        <tr>
+            <td>{{ applicant.name }}</td>
+            <td>
+                <a href="{{ url_for('home.view_applicant', applicant_id=applicant.id) }}">View More</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

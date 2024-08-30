@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}List a Job{% endblock %}
+{% block content %}
+<h2>List a Job</h2>
+<form method="post">
+    <label for="title">Job Title</label>
+    <input type="text" id="title" name="title" required>
+    
+    <label for="description">Job Description</label>
+    <textarea id="description" name="description" required></textarea>
+    
+    <label for="degree">Degree</label>
+    <input type="text" id="degree" name="degree" required>
+    
+    <label for="experience">Experience</label>
+    <input type="text" id="experience" name="experience" required>
+    
+    <label for="tech_skills">Technical Skills</label>
+    <input type="text" id="tech_skills" name="tech_skills" required>
+    
+    <label for="soft_skills">Soft Skills</label>
+    <input type="text" id="soft_skills" name="soft_skills" required>
+    
+    <label for="teamwork">Teamwork</label>
+    <input type="checkbox" id="teamwork" name="teamwork">
+    
+    <label for="cv_required">CV Required</label>
+    <input type="checkbox" id="cv_required" name="cv_required">
+    
+    <label for="salary_range">Salary Range</label>
+    <input type="text" id="salary_range" name="salary_range" required>
+    
+    <label for="role">Role</label>
+    <input type="text" id="role" name="role" required>
+    
+    <button type="submit">List Job</button>
+</form>
+{% endblock %}

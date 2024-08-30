@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Employer Dashboard{% endblock %}
+{% block content %}
+<h2>Employer Dashboard</h2>
+
+<h1>Applicant Information</h1>
+
+    <table style="width:fit-content;">
+        <thead>
+            <tr>
+                <th>S/N</th>
+                <th>Job Title</th>
+                <th>Academic Qualifications</th>
+                <th>Work Experience</th>
+                <th>Application Letter</th>
+                <th>Technical Skills</th>
+                <th>Soft Skills</th>
+                <th>Asking Salary</th>
+
+                <th>Review</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for application in applications %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ application.job_title }}</td>
+                <td>{{ application.academic_qual }}</td>
+                <td>{{ application.work_experience }}</td>
+                <td>{{ application.apply_letter }}</td>
+                <td>{{ application.tech_skills }}</td>
+                <td>{{ application.soft_skills }}</td>
+                <td>{{ application.asking_salary }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

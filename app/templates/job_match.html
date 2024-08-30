@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Job Match{% endblock %}
+{% block content %}
+<h2>Find a Job</h2>
+<form method="post">
+    <label for="criteria">Match Criteria</label>
+    <input type="text" id="criteria" name="criteria" required>
+    
+    <button type="submit">Find Matches</button>
+</form>
+{% endblock %}

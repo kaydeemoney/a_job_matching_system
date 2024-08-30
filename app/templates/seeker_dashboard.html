@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Seeker Dashboard{% endblock %}
+{% block content %}
+<h2>Job Seeker Dashboard</h2>
+<h3>Available Jobs</h3>
+<ul>
+    {% for job in available_jobs %}
+    <li>{{ job.title }} - <a href="{{ url_for('home.apply', job_id=job.id) }}">Apply</a></li>
+    {% endfor %}
+</ul>
+<h3 style="text-align: center;">Your Applications</h3>
+<table>
+    <tr>
+        <th>Job Title</th>
+        <th>Status</th>
+        <th>Details</th>
+        <th>More</th>
+    </tr>
+    {% for application in user_applications %}
+    <tr>
+        <td>{{ application.job_title }}</td>
+        <td>{{ application.status }}</td>
+        <td>{{ application.invite_details }}</td>
+        
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

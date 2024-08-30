@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Job Matching System{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='css/placeholder_logo.png') }}" alt="Logo">
+            </div>
+            <div class="header-text">
+                <h1>JOB MATCHING SYSTEM</h1>
+                <h2>...find your perfect job match!</h2>
+            </div>
+        </div>
+        <nav class="horizontal-navbar">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/employer_register">Employer Register</a></li>
+                <li><a href="/seeker_register">Job Seeker Register</a></li>
+                <li><a href="/list_job">List a Job</a></li>
+                <li><a href="/job_match">Find a Job</a></li>
+                <li><a href="/about_us">About Us</a></li>
+                <li>
+                    <a href="{{ url_for('home.logout') }}">Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <nav class="vertical-navbar">
+        <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/y_report">Why Get Job?</a></li>
+            <li><a href="/rt">Online Courses</a></li>
+        </ul>
+    </nav>
+    <main>
+        {% block content %}
+        <!-- This block will be overridden by specific content in each page -->
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Job Matching System. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

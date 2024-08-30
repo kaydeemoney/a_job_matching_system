@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Apply for Job{% endblock %}
+{% block content %}
+<h2>Apply for {{ job.title }}</h2>
+<p>Details Below</p>
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+    }
+</style>
+
+<table>
+    <tr>
+        <th>Job Title</th>
+        <th>Description</th>
+        <th>Qualifications</th>
+        <th>Experience</th>
+        <th>Tech Skill Requirement</th>
+        <th>Soft Skills</th>
+        <th>Team Work</th>
+        <th>CV</th>
+        <th>Salary</th>
+        <th>Role</th>
+    </tr>
+    <tr>
+        <td>{{ job.title }}</td>
+        <td>{{ job.description }}</td>
+        <td>{{ job.degree }}</td>
+        <td>{{ job.experience }}</td>
+        <td>{{ job.tech_skills }}</td>
+        <td>{{ job.soft_skills }}</td>
+        <td>{{ job.teamwork }}</td>
+        <td>{{ job.cv_required }}</td>
+        <td>{{ job.salary_range }}</td>
+        <td>{{ job.role }}</td>
+    </tr>
+</table>
+<div style="margin-bottom: 30%;">
+<p>INTERESTED IN APPLYING?
+    <b>Prepare an application letter of not more than 500 words,
+    Also prepare your CV as a .pdf extension </b>
+
+</p>
+<p></p>
+
+
+<a href="{{ url_for('home.seeker_apply_view', job_id=job.id, seeker_id=current_user.id) }}">Click This Link To Apply</a>
+
+
+</div>
+
+{% endblock %}

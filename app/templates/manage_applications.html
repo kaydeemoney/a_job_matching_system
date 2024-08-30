@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Manage Applications{% endblock %}
+{% block content %}
+<h2>Manage Applications</h2>
+<form method="post">
+    <table>
+        <tr>
+            <th>Job Title</th>
+            <th>Seeker Username</th>
+            <th>Status</th>
+            <th>Invite Details</th>
+            <th>Action</th>
+        </tr>
+        {% for application, user, job in job_applications %}
+        <tr>
+            <td>{{ job.title }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ application.status }}</td>
+            <td>
+                <textarea name="invite_details_{{ application.id }}">{{ application.invite_details }}</textarea>
+            </td>
+            <td>
+                <select name="action_{{ application.id }}">
+                    <option value="unreviewed" {% if application.status == 'unreviewed' %}selected{% endif %}>Unreviewed</option>
+                    <option value="accepted" {% if application.status == 'accepted' %}selected{% endif %}>Accepted</option>
+                    <option value="rejected" {% if application.status == 'rejected' %}selected{% endif %}>Rejected</option>
+                    <option value="invited" {% if application.status == 'invited' %}selected{% endif %}>Invited</option>
+                </select>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button type="submit">Update Applications</button>
+</form>
+{% endblock %}

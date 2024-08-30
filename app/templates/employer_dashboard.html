@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Employer Dashboard{% endblock %}
+{% block content %}
+<h2>Employer Dashboard</h2>
+<h3>Posted Jobs</h3>
+<table>
+    <tr>
+        <th>Job Title</th>
+        <th>Actions</th>
+    </tr>
+    {% for job in posted_jobs %}
+    <tr>
+        <td>{{ job.title }}</td>
+        <td>
+            <form action="{{ url_for('home.delete_job', job_id=job.id) }}" method="post" style="display:inline;">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit">Delete</button>
+            </form>
+            
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<div style="margin-top:10%; justify-content: center;">
+<a href="{{ url_for('home.list_job') }}">Post a New Job</a>
+
+<a  style="margin-left: 50px;" href="{{ url_for('home.view_applicants') }}">View Submitted Applications</a>
+
+</div>
+{% endblock %}
